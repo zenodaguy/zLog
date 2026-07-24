@@ -45,4 +45,4 @@ zLog::EnableCategoryColors(false); // off
 zLog::EnableCategoryColors(true); // on (default)
 ```
 
-<img width="931" height="576" alt="example" src="https://github.com/user-attachments/assets/713dbd8b-8fe6-4d85-8011-f082082ef974" />
+<img width="923" height="572" alt="example2" src="https://github.com/user-attachments/assets/9bc544de-33cc-48bb-b9c2-fe015b63b67a" />
