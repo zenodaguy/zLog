@@ -22,3 +22,10 @@ zlog::Warning("warning message");
 ```
 zlog::Error("error message");
 ```
+
+*Timestamps:*
+```
+zLog::EnableTimestamp(true);
+```
+
+<img width="931" height="576" alt="example" src="https://github.com/user-attachments/assets/713dbd8b-8fe6-4d85-8011-f082082ef974" />
