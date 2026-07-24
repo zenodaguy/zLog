@@ -1,6 +1,8 @@
 ## zLog
 A simple console **message-logger** using & made with *C++*.
 
+![GitHub release](https://img.shields.io/github/v/release/zenodaguy/zLog)
+
 ### Setup
 1. To get started, download the latest release, and extract it.
 2. Inside of your project, create an include folder with zLog.h, and a lib folder with zLog.lib.
