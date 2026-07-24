@@ -11,22 +11,38 @@ A simple console **message-logger** using & made with *C++*.
 ### Using zLog
 *Info Log:*
 ```
-zlog::Info("info message");
+zLog::Info("info message");
 ```
 
 *Warning Log:*
 ```
-zlog::Warning("warning message");
+zLog::Warning("warning message");
 ```
 
 *Error Log:*
 ```
-zlog::Error("error message");
+zLog::Error("error message");
+```
+
+*Success Log:*
+```
+zLog::Success("success message");
 ```
 
 *Timestamps:*
 ```
 zLog::EnableTimestamp(true);
+```
+
+*Categories:*
+```
+zLog::Info("info message", "category name here"); // works with any type (info, error, warning, & success)
+```
+
+*Category Colors:*
+```
+zLog::EnableCategoryColors(false); // off
+zLog::EnableCategoryColors(true); // on (default)
 ```
 
 <img width="931" height="576" alt="example" src="https://github.com/user-attachments/assets/713dbd8b-8fe6-4d85-8011-f082082ef974" />
