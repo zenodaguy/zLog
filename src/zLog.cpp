@@ -10,8 +10,22 @@
 namespace zLog
 {
     bool showTimestamp = false;
+    bool showCategoryColors = true;
+    WORD defaultColor = 7;
 
-    void SetColor(int color)
+    void Initialize()
+    {
+        CONSOLE_SCREEN_BUFFER_INFO info;
+
+        GetConsoleScreenBufferInfo(
+            GetStdHandle(STD_OUTPUT_HANDLE),
+            &info
+        );
+
+        defaultColor = info.wAttributes;
+    }
+
+    void SetColor(WORD color)
     {
         SetConsoleTextAttribute(
             GetStdHandle(STD_OUTPUT_HANDLE),
@@ -21,12 +35,17 @@ namespace zLog
 
     void ResetColor()
     {
-        SetColor(7);
+        SetColor(defaultColor);
     }
 
     void EnableTimestamp(bool enabled)
     {
         showTimestamp = enabled;
+    }
+
+    void EnableCategoryColors(bool enabled)
+    {
+        showCategoryColors = enabled;
     }
 
     std::string GetTimestamp()
@@ -55,36 +74,90 @@ namespace zLog
         }
     }
 
-    void Info(const std::string& message)
+    void PrintCategory(const std::string& category, WORD color)
+    {
+        if (!category.empty())
+        {
+            if (showCategoryColors)
+            {
+                SetColor(color);
+            }
+            else
+            {
+                ResetColor();
+            }
+
+            std::cout << "[" << category << "] ";
+
+            ResetColor();
+        }
+    }
+
+    void Info(const std::string& message, const std::string& category)
     {
         SetColor(7);
+
         std::cout << "[*] ";
+
         ResetColor();
 
         PrintTimestamp();
 
+        PrintCategory(category, 7);
+
         std::cout << message << std::endl;
+
+        ResetColor();
     }
 
-    void Warning(const std::string& message)
+    void Warning(const std::string& message, const std::string& category)
     {
         SetColor(14);
+
         std::cout << "[!] ";
+
         ResetColor();
 
         PrintTimestamp();
 
+        PrintCategory(category, 14);
+
         std::cout << message << std::endl;
+
+        ResetColor();
     }
 
-    void Error(const std::string& message)
+    void Error(const std::string& message, const std::string& category)
     {
         SetColor(12);
+
         std::cout << "[-] ";
+
         ResetColor();
 
         PrintTimestamp();
 
+        PrintCategory(category, 12);
+
         std::cout << message << std::endl;
+
+        ResetColor();
+    }
+
+    void Success(const std::string& message, const std::string& category)
+    {
+        SetColor(10);
+
+        std::cout << "[+] ";
+
+        ResetColor();
+
+        PrintTimestamp();
+
+        PrintCategory(category, 10);
+
+        std::cout << message << std::endl;
+
+        ResetColor();
     }
 }
