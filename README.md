@@ -1,7 +1,16 @@
-## zLog
+<h1 align="center">zLog - Console Logger</h1>
+
+<div align="center">
+
 A simple console **message-logger** using & made with *C++*.
 
+</div>
+
+<div align="center">
+
 ![GitHub release](https://img.shields.io/github/v/release/zenodaguy/zLog)
+
+</div>
 
 ### Setup
 1. To get started, download the latest release, and extract it.
